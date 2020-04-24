@@ -1,6 +1,5 @@
 wheel
 docopt
-git+git://github.com/HACKER-3000/robobrowser.git@58cfd9cf7f56cff592f3af37e04d790db6236620
 requests
 pyprind
 six
