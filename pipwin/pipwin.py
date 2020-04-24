@@ -104,7 +104,12 @@ def build_cache():
     """)
 
     # We grab Gohlke's code and evaluate it within py2js
-    dl_function = re.search(r'function dl.*\}', soup.find("script").text).group(0)
+    try:
+        dl_function = re.search(r'function dl.*\}', soup.find("script").text).group(0)
+    except AttributeError:
+        logger.error('Cannot parse download function')
+        return data
+
     context.execute(dl_function)
 
     links = soup.find(class_="pylibs").find_all("a")
